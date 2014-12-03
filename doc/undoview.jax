@@ -1,0 +1,122 @@
+*undoview.jax*
+			undolist viewer for vim.
+
+Version: 1.0
+Author: mugetu
+License: MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+目次						*undoview-contents*
+
+概要						|undoview-introduction|
+インターフェース				|undoview-interface|
+	コマンド				|undoview-commands|
+	関数					|undoview-functions|
+	キーマッピング				|undoview-key-mappings|
+カスタマイズ					|undoview-customizing|
+更新履歴					|undoview-changelog|
+
+==============================================================================
+概要						*undoview-introduction*
+
+*undoview.vim* は、Vim の undolist を操作するプラグインです。
+
+要件:
+- Vim 7.3 以降
+
+==============================================================================
+インターフェース				*undoview-interface*
+
+==============================================================================
+コマンド					*undoview-commands*
+
+:UndoView			*:UndoView*
+			UndoView を表示します。
+
+:UndoViewToggle			*:UndoViewToggle*
+			UndoView の表示/非表示をトグルします。
+
+:UndoViewUpdate			*:UndoViewUpdate*
+			UndoView の表示を更新します。
+
+:UndoViewDiff			*:UndoViewDiff*
+			編集中ファイルと UndoView で選択中の差分を表示します。
+
+==============================================================================
+関数						*undoview-functions*
+
+==============================================================================
+キーマッピング					*undoview-key-mappings*
+
+<Plug>(undoview)		*<Plug>(undoview)*
+			|:UndoView| を実行します。
+
+						*g:undoview_no_default_key_mappings*
+以下のキーマッピングは、既に定義されていたり g:undoview_no_default_key_mappings
+に 1 が設定されていると定義されません。
+
+{lhs}			{rhs}
+--------		------------------------------
+<Leader>uv		<Plug>(undoview)
+
+==============================================================================
+カスタマイズ					*undoview-customizing*
+
+g:UndoViewWidth			*g:UndoViewWidth*
+			UndoView の windows 幅を指定します。
+			デフォルトは 40 です。
+
+			Example: >
+			let g:UndoViewWidth = 40
+<
+g:UndoViewLeft			*g:UndoViewLeft*
+			UndoView の window を左側に開きます。
+			デフォルトは 0 です。
+
+			Example: >
+			let g:UndoViewLeft = 0
+<
+g:UndoViewDiffVertical		*g:UndoViewDiffVertical*
+			UndoView の windows を縦分割して開きます。
+			デフォルトは 1 です。
+
+			Example: >
+			let g:UndoViewDiffVertical = 1
+<
+
+g:UndoViewMaxCount		*g:UndoViewMaxCount*
+			UndoView に表示される undo の最大値です。
+			0 を設定した場合はリミットなしです。
+			デフォルトは 200 です。
+
+			Example: >
+			let g:UndoViewMaxCount = 200
+<
+
+==============================================================================
+更新履歴					*undoview-changelog*
+
+1.0			2014/11/10
+			- 初版。
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
